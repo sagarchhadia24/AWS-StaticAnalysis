@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<html lang="en">
+<body>
+    {%  for Data in output %}
+	<br>
+    <table border="1">
+        <tr>
+            <td width = "10%">User Name   : </td>
+            <td width = "90%"> {{ Data["UserName"] }}</td>
+        <tr>
+        <tr>
+            <td width = "10%">File Name   : </td>
+            <td width = "90%"> {{ Data["FileName"] }}</td>
+        <tr>
+        <tr>
+            <td width = "10%">File Content  : </td>
+            <td width = "90%"> {{ Data["FileContent"] }}</td>
+        <tr>
+        <tr>
+            <td width = "10%">Rats Output  : </td>
+            <td width = "90%"> {{ Data["RatsOutput"] }}</td>
+        <tr>
+        <tr>
+            <td width = "10%">FlawFinder Output  : </td>
+            <td width = "90%"> {{ Data["FlawFinderOutput"] }}</td>
+        <tr>
+    </table><br>
+        <form id="/delete" action="../deletefile" method="post">
+            <input type="hidden" name= "username" value={{ Data["UserName"] }}>
+            <input type="hidden" name= "filename" value={{ Data["FileName"] }}>
+            <input type="submit" value="Delete" id="submit_file">
+        </form>
+    <br>
+    <br>
+    <br>
+    {% endfor %}
+</body>
+</html>
+
+
+{% endblock %}

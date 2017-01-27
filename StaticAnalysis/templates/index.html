@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <p class="lead">Sagar Chhadia || Student ID: 3987</p>
+    <p class="lead">AWS Static Analysis</p>
+</div>
+
+<html>
+<body>
+<div>
+    <p>Logged In User : {{user}}</p>
+</div>
+
+<div>
+    <p>{{output}}</p>
+</div>
+
+<div>
+	<br>
+	<form id="formUpload" action="../uploadFile" method='POST' enctype=multipart/form-data>
+		<label for="fileupload"> Select a file to upload</label>
+		<input type="file" name="file_upload" value="file_upload" id="file_upload"><br>
+		<input type="hidden" name="username" value={{ user }}>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}
